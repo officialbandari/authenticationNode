@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 //||"auth_tutorial"
 
 mongoose
-.connect(process.env.MONGODB_URI||"mongodb://localhost:27017", 
+.connect(process.env.MONGODB_URI, 
    {
-    dbName:process.env.DB_NAME||"auth_tutorial",
+    dbName:process.env.DB_NAME,
      useNewUrlParser: true,
      useUnifiedTopology: true ,
      useFindAndModify: false,

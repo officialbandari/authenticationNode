@@ -12,7 +12,7 @@ app.use(express.urlencoded({
     extended:true
 }))
 
-const PORT = process.env.PORT || 9000;
+const PORT = 9000;;
 
 
 app.get('/', async (req, res, next) =>{
