@@ -1,0 +1,20 @@
+
+ required packages
+
+ npm install --save express 
+ 
+ 
+ for console seeing the which http request current working 
+ morgan 
+ 
+ halding errors in http request
+ http-errors 
+ 
+ PORT initialition
+ dotenv 
+ 
+ creating schema 
+ mongoose 
+
+ 
+
