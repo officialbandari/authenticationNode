@@ -4,13 +4,14 @@ const createError = require('http-errors')
 
 
 module.exports = {
+
     signaccessToken : (userId) =>{
         return new Promise((resolve, reject) =>{
             const payload  = {}
             const secrete = process.env.ACCESS_TOKEN_SECRET
             const options = {
                 expiresIn : '30s',
-                issuer :'pickurpage.com',
+                issuer :'bandari.com',
                 audience : userId,
                   }
 
@@ -52,4 +53,34 @@ module.exports = {
             next()
         })
     },
+
+
+    signRefresToken : (userId) =>{
+        return new Promise((resolve, reject) =>{
+            const payload  = {}
+            const secrete = process.env.REFRESH_TOKEN_SECRET
+            const options = {
+                expiresIn : '1y',
+                issuer :'bandari.com',
+                audience : userId,
+                  }
+
+            JWT.sign(payload, secrete , options , (err, token) =>{
+
+                if (err) {
+
+                    //console.log(err.message)
+                    //reject(err)
+                    reject(createError.InternalServerError())
+                }
+               
+                resolve(token)
+            })
+
+        }) 
+
+    },
+
+
+
 } 

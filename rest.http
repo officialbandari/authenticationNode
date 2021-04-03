@@ -1,2 +1,2 @@
 GET http://localhost:9000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTc0ODIwNDgsImV4cCI6MTYxNzQ4MjA3OCwiYXVkIjoiNjA2OGMyMGZmZDFhZWMwMzMzZjA1YTI1IiwiaXNzIjoicGlja3VycGFnZS5jb20ifQ.gpI9yEo8yNKvGPKwoXKYhBcjFLhiZ5dK6zJ8iAFtgI8
+Authorization: Bearer 
