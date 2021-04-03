@@ -5,7 +5,7 @@ const createError = require('http-errors')
 
 module.exports = {
 
-    signaccessToken : (userId) =>{
+    signAccessToken : (userId) =>{
         return new Promise((resolve, reject) =>{
             const payload  = {}
             const secrete = process.env.ACCESS_TOKEN_SECRET
@@ -78,6 +78,23 @@ module.exports = {
             })
 
         }) 
+
+    },
+
+    verifyRefreshToken : (refreshToken) =>{
+        return new Promise((resolve, reject)=>{
+           
+            JWT.verify(refreshToken , process.env.REFRESH_TOKEN_SECRET, (err, payload) =>{
+
+                if(err) return reject(createError.Unauthorized())
+                const userId = payload.aud 
+
+                resolve(userId)
+
+            })
+
+        })
+
 
     },
 
