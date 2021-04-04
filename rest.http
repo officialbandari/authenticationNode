@@ -1,16 +1,17 @@
+
+
 GET http://localhost:9000
-Authorization: Bearer 
+Authorization: Bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTc1MTA1MDUsImV4cCI6MTY0OTA2ODEwNSwiYXVkIjoiNjA2OTQwNjk1NDEzYTc0MGZmODRjZjNmIiwiaXNzIjoiYmFuZGFyaS5jb20ifQ.apErQTUt1MqOQcqI9ASdo-cs4iILjpA40n2RE0mguvw"
 
 
 
 ###
 
 POST http://localhost:9000/auth/register 
-
 Content-Type: application/json
 
 {
-    "email" : "prasad@gmail.com",
+    "email" : "kriss7@gmail.com",
     "password" : "1234"
 }
 
@@ -23,8 +24,9 @@ POST http://localhost:9000/auth/login
 Content-Type: application/json
 
 {
-    "email" : "kriss@gmail.com",
-    "password" : "1213"
+    "email" : "kriss7@gmail.com",
+    "password" : "1234"
+
 }
 
 
