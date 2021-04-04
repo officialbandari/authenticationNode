@@ -13,8 +13,54 @@
  PORT initialition
  dotenv 
  
- creating schema 
- mongoose 
-
  
+ 
+ 
+
+REDIS COMMAND
+
+npm install redis
+npm install -g redis-commander
+FOR MAC
+sudo npm install -g redis-commander
+
+To see the graphical UI OF REDIS
+
+open cmd 
+
+redis-commander
+ -> you ll get below url
+http://127.0.0.1:8081/
+
+
+SOME BASIC COMMANDS OF REDIS 
+
+SET NAME KRISHNA 
+    KEY  VALUE 
+
+IF WE WANT OUTPUT 
+->
+GET NAME 
+    KEY 
+
+WE CAN GET THE OUTPUT
+   
+->"KRISHNA"
+   VALUE
+
+ AND ALSO IF WE WANT TO DELETE THE KEYVALUE PAIR 
+
+ just use  ->DEL KEYWORD
+    EX : DEL NAME
+    NAME LL BE DELETED...
+
+
+    AND ALSO WE CAN SET THE EXPIRY TIME FOR THE KEYVALUE PAIRS IN THE REDIS 
+
+    EX : SET NAME KRISHNA EX 10 (EX  FOR SECONDS AND PX FOR MILLISECONDS WE CAN SET THE TIME FOR THE KEYVALUE PAIRS)
+
+
+
+
+
 

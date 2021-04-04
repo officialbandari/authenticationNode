@@ -1,7 +1,5 @@
 GET http://localhost:9000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTc0ODc0MDAsImV4cCI6MTYxNzQ4NzQzMCwiYXVkIjoiNjA2OGMyMGZmZDFhZWMwMzMzZjA1YTI1IiwiaXNzIjoiYmFuZGFyaS5jb20ifQ.XTuQvMiVx59mOcH7XEuPYWOIoFtLitDKwLO-ymIJYsg
-
-###
+Authorization: Bearer 
 POST http://localhost:9000/auth/register 
 
 Content-Type: application/json
@@ -30,8 +28,7 @@ POST http://localhost:9000/refresh-token
 Content-Type: application/json
 
 {
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTc0ODY5MTEsImV4cCI6MTY0OTA0NDUxMSwiYXVkIjoiNjA2OGMyMGZmZDFhZWMwMzMzZjA1YTI1IiwiaXNzIjoiYmFuZGFyaS5jb20ifQ.0h3PFGtgJCK-Wt7NHzoQw2KY1d_Sqf4Xsk8kh59uCNc"
-}
+    "refreshToken": 
 
 
 
