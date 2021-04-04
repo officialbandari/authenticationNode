@@ -3,15 +3,17 @@ const morgan = require('morgan');
 const creatError = require('http-errors');
 const AuthRoute = require('./Routes/Auth.rout')
 const {verifyAccessToken} = require('./helpersdb/jwt_helpers')
-const client = require('./helpersdb/init_redis')
+//const client =require('./helpersdb/init_redis')
+require('./helpersdb/init_redis')
+
 require('dotenv').config()
 require('./helpersdb/mongodb')
 
-client.SET("name", "krishna")
-client.GET('name', (err, value)=>{
-    if(err) console.log(err.message)
-    console.log(value)
-})
+// client.SET("name", "krishna")
+// client.GET('name', (err, value)=>{
+//     if(err) console.log(err.message)
+//     console.log(value)
+// })
 
 const app = express();
 app.use(morgan('dev'));

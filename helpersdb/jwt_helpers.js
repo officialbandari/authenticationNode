@@ -1,5 +1,6 @@
 const JWT = require('jsonwebtoken')
 const createError = require('http-errors')
+const client = require('./init_redis')
 
 
 
@@ -10,7 +11,7 @@ module.exports = {
             const payload  = {}
             const secrete = process.env.ACCESS_TOKEN_SECRET
             const options = {
-                expiresIn : '30s',
+                expiresIn : '40s',
                 issuer :'bandari.com',
                 audience : userId,
                   }
@@ -18,13 +19,23 @@ module.exports = {
             JWT.sign(payload, secrete , options , (err, token) =>{
 
                 if (err) {
-
-                    //console.log(err.message)
+                    
+                    console.log(err.message)
                     //reject(err)
                     reject(createError.InternalServerError())
                 }
+                client.SET(userId , token ,"EX", 30, (err , reply )=>{
+                    if(err){
+                        console.log(err.message)
+                        reject(createError.InternalServerError())
+                        return
+                    }
+                    resolve(token)
+                })
+                
+
                
-                resolve(token)
+                
             })
 
         }) 
@@ -83,13 +94,18 @@ module.exports = {
 
     verifyRefreshToken : (refreshToken) =>{
         return new Promise((resolve, reject)=>{
-           
             JWT.verify(refreshToken , process.env.REFRESH_TOKEN_SECRET, (err, payload) =>{
-
-                if(err) return reject(createError.Unauthorized())
+            if(err) return reject(createError.Unauthorized())
                 const userId = payload.aud 
+                client.GET(userId, (err, result) =>{
+                    if(err){
+                        console.log(err.message)
+                        reject(createError.InternalServerError())
 
-                resolve(userId)
+                    }
+                    if(refreshToken === result) return resolve(userId)
+                    reject(createError.Unauthorized())
+                })
 
             })
 
@@ -97,6 +113,7 @@ module.exports = {
 
 
     },
+
 
 
 

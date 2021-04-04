@@ -1,5 +1,10 @@
 GET http://localhost:9000
 Authorization: Bearer 
+
+
+
+###
+
 POST http://localhost:9000/auth/register 
 
 Content-Type: application/json
@@ -9,13 +14,17 @@ Content-Type: application/json
     "password" : "1234"
 }
 
+
+###
+
+
 ###
 POST http://localhost:9000/auth/login
 Content-Type: application/json
 
 {
-    "email" : "prasad@gmail.com",
-    "password" : "1234"
+    "email" : "kriss@gmail.com",
+    "password" : "1213"
 }
 
 
@@ -23,12 +32,12 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:9000/refresh-token 
+POST http://localhost:9000/auth/refresh-token 
 
 Content-Type: application/json
 
-{
-    "refreshToken": 
-
-
-
+    { 
+      "refreshToken": 
+      
+      
+      }
