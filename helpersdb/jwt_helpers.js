@@ -11,7 +11,7 @@ module.exports = {
             const payload  = {}
             const secrete = process.env.ACCESS_TOKEN_SECRET
             const options = {
-                expiresIn : '40s',
+                expiresIn : '1y',
                 issuer :'bandari.com',
                 audience : userId,
                   }
@@ -24,7 +24,7 @@ module.exports = {
                     //reject(err)
                     reject(createError.InternalServerError())
                 }
-                client.SET(userId , token ,"EX", 30, (err , reply )=>{
+                client.SET(userId , token ,"EX", 365 * 24 * 60 * 60, (err , reply )=>{
                     if(err){
                         console.log(err.message)
                         reject(createError.InternalServerError())

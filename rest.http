@@ -41,3 +41,14 @@ Content-Type: application/json
       
       
       }
+
+###
+
+DELETE http://localhost:9000/auth/logout
+
+Content-Type: application/json
+
+   {
+       "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTc1MDU5MzcsImV4cCI6MTY0OTA2MzUzNywiYXVkIjoiNjA2OGMyMGZmZDFhZWMwMzMzZjA1YTI1IiwiaXNzIjoiYmFuZGFyaS5jb20ifQ.67G6tGZvKCeaY3ji3o0czUi5zNxaC7PVEPTl8plK3gs"
+    
+    }

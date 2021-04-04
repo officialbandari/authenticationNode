@@ -3,8 +3,7 @@ const createErrors = require('http-errors');
 const User  = require('../models/User.model');
 const {authSchema } = require('../helpersdb/validation_schema');
 const {signAccessToken, signRefresToken,verifyRefreshToken} = require('../helpersdb/jwt_helpers');
-const { verify } = require('jsonwebtoken');
-
+const { client } = require('../helpersdb/init_redis');
 const router = express.Router();
 
 router.post('/register', async (req, res, next) =>{
@@ -42,6 +41,7 @@ try {
     }
 
 });
+
 
 
 
@@ -93,9 +93,29 @@ router.post('/refresh-token', async (req, res, next) =>{
     res.send('refresh-token router...')
 });
 
+
+
+
 router.delete('/logout', async (req, res, next) =>{
 
-    res.send('logout router')
+    try {
+        const {refreshTokenn} = req.body
+        if(!refreshTokenn) throw createErrors.BadRequest()
+        const userId = await verifyRefreshToken(refreshTokenn)
+        client.DEL(userId , (err, val) =>{
+            if(err){
+                console.log(err.message)
+                throw createErrors.InternalServerError()
+
+            }
+            console.log(val)
+            res.status(204)
+        })
+
+        
+    } catch (error) {
+        next(error)
+    }
 
 });
 
